@@ -41,20 +41,31 @@
 				}
 	%>
 	<li><%=qty[j]%> :</li>
-	<form></form>
+
 	<a href="login.html"><input id="wishList" type="submit"
 		value="Save in WishList" /></a>
 
 	<%
 		}
 		} else {
+			if (userName == null) {
 	%>
 	<div class="alert alert-danger" role="alert">
 		<strong>Oh oops!</strong> Your Cart is Empty!
 		<hr>
 		<a href="index.html">Back to Home Page.</a>
 	</div>
+	</form>
 	<%
+		} else {
+	%>
+	<div class="alert alert-danger" role="alert">
+		<strong>Oh oops!</strong> Your Cart is Empty!
+		<hr>
+		<a href="cart.html">Back to Home Page.</a>
+	</div>
+	<%
+		}
 		}
 	%>
 
