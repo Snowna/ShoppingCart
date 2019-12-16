@@ -11,6 +11,7 @@
 <title>Login</title>
 </head>
 <body>
+<form method="post" action="LoginServlet">
 	<div class="container">
 		<!-- Jumbotron Header -->
 		<header class="jumbotron my-4">
@@ -29,14 +30,14 @@
 				<div class="card h-100">
 					<div class="card-body">
 						<h4 class="card-title"></h4>
-						<p class="font-weight-bold"> E-mail </p><input id="email" type="text" /> 
+						<p class="font-weight-bold"> User Name </p><input name="username" type="text" /> 
 						<br>
 						<p class="font-weight-bold">Password </p><input
-							id="password" type="text" />
+							name="password" type="text" />
 					</div>
 					<div class="card-footer text-center">
-						<a href="index.html"> <input id="login" type="submit" value="Login" /> </a>
-						<a href="register.html"> <input id="register" type="submit" value="Register" /> </a>
+						 <input id="login" type="submit" value="Login" /> 
+						<a href="register.html"> <input id="register" type="submit" value="register" /> </a>
 
 					</div>
 				</div>
@@ -46,6 +47,7 @@
 		<br> <br>
 		<!-- /.row -->
 	</div>
+	</form>
 	<!-- /.container -->
 
 	<!-- Footer -->

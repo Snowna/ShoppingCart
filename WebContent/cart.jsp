@@ -37,26 +37,39 @@
 			}
 
 			for (String st : qty) {
+				//System.out.println(st);
 				cartQty.add(st);
+
 			}
+
+			//System.out.println(qty.length + "size");
 
 			session.setAttribute("cartCaketype", cartCaketype);
 			session.setAttribute("cartqty", qty);
 
-			for (int i = 0; i < caketypes.length; i++) {
-				if (Integer.parseInt(qty[i]) != 0) {
+			for (int i = 0, j = 0; i < caketypes.length; i++) {
+				//System.out.println(caketypes[i]);
 	%>
-	<li><%=caketypes[i]%> : </li>
-	<li><%=qty[i]%> : </li>
-		<input id = "wishList" type="submit" value="Save in WishList" />
-	
+	<li><%=caketypes[i]%> :</li>
 	<%
-		}
+		while (Integer.parseInt(qty[j]) == 0) {
+					j++;
+				}
+	%>
+	<li><%=qty[j]%> :</li>
+	<a href="login.html"><input id="wishList" type="submit"
+		value="Save in WishList" /></a>
+
+	<%
+		j++;
+				//}else continue;
 			}
 		} else {
 	%>
 	<div class="alert alert-danger" role="alert">
 		<strong>Oh oops!</strong> Your Cart is Empty!
+		<hr>
+		<a href="index.html">Back to Home Page.</a>
 	</div>
 	<%
 		}
