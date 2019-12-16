@@ -19,51 +19,34 @@
 	<h3>Here is your shopping Cart</h3>
 
 	<%
-		String caketypes[] = request.getParameterValues("caketype");
-		String qty[] = request.getParameterValues("qty");
-
 		ArrayList<String> cartCaketype = (ArrayList<String>) session.getAttribute("cartCaketype");
-		ArrayList<String> cartQty = (ArrayList<String>) session.getAttribute("cartQty");
+		String qty[] = (String[]) session.getAttribute("cartQty");
 
-		if (cartCaketype == null) {
-			cartCaketype = new ArrayList<String>();
-		}
-		if (cartQty == null) {
-			cartQty = new ArrayList<String>();
-		}
-		if (caketypes != null) {
-			for (String caketype : caketypes) {
-				cartCaketype.add(caketype);
-			}
+		String userName = (String) session.getAttribute("username");
+		String password = (String) session.getAttribute("password");
 
-			for (String st : qty) {
-				//System.out.println(st);
-				cartQty.add(st);
-
-			}
-
-			//System.out.println(qty.length + "size");
-
-			session.setAttribute("cartCaketype", cartCaketype);
-			session.setAttribute("cartqty", qty);
-
-			for (int i = 0, j = 0; i < caketypes.length; i++) {
-				//System.out.println(caketypes[i]);
+		//for(String ct: qty){
+		//	System.out.println(ct+"2");
+		//}
+		if (cartCaketype != null) {
+			int i = 0, j = 0;
+			for (String ct : cartCaketype) {
+				System.out.println(ct);
 	%>
-	<li><%=caketypes[i]%> :</li>
+	<li><%=cartCaketype.get(i)%> :</li>
 	<%
-		while (Integer.parseInt(qty[j]) == 0) {
+		i++;
+				while (Integer.parseInt(qty[j]) == 0) {
 					j++;
 				}
 	%>
 	<li><%=qty[j]%> :</li>
+	<form></form>
 	<a href="login.html"><input id="wishList" type="submit"
 		value="Save in WishList" /></a>
 
 	<%
-		j++;
-				//}else continue;
-			}
+		}
 		} else {
 	%>
 	<div class="alert alert-danger" role="alert">
@@ -74,6 +57,7 @@
 	<%
 		}
 	%>
+
 
 </body>
 </html>
